@@ -1,0 +1,170 @@
+# HR System — Step 1: MVP Definition
+
+This document defines the **first releasable version (MVP)** of the HR system.
+
+## 1) MVP Goal
+
+Deliver a secure web application that lets an organization:
+- maintain core employee records,
+- process leave requests end-to-end,
+- capture attendance,
+- store essential HR documents,
+- and enforce role-based access.
+
+## 2) Roles in MVP
+
+- **Admin**: platform-level controls, user/role setup.
+- **HR**: full employee and leave management.
+- **Manager**: approve/reject leave for direct reports; view team data.
+- **Employee**: view/update own profile fields, request leave, view attendance and documents.
+
+## 3) In-Scope Modules (MVP)
+
+### 3.1 Employee Records
+
+#### Core data fields
+- Employee ID (unique)
+- Full name
+- Work email / phone
+- Department
+- Job title
+- Manager
+- Employment type (full-time/contract/intern)
+- Join date
+- Employment status (active/inactive)
+
+#### MVP actions
+- Create employee profile (HR/Admin)
+- Edit employee profile (HR/Admin; limited self-edit for Employee)
+- View employee list and profile details
+- Search/filter by department, status, manager
+
+### 3.2 Leave Management
+
+#### Leave types
+- Annual leave
+- Sick leave
+- Unpaid leave
+
+#### MVP actions
+- Employee submits leave request (dates, type, reason)
+- Manager approves/rejects
+- HR override capability
+- Leave balance tracking
+- Leave calendar view (team-level)
+
+### 3.3 Attendance Tracking
+
+#### MVP actions
+- Daily check-in/check-out (manual)
+- Attendance status (present/absent/on leave)
+- Monthly attendance summary per employee
+- Basic manager/team attendance view
+
+### 3.4 Document Management
+
+#### MVP actions
+- Upload key employee documents (contract, ID, certifications)
+- Restrict access by role
+- Version history metadata (uploaded by/date)
+- Download/view files
+
+### 3.5 Access Control & Security
+
+#### MVP actions
+- Role-based access control (Admin/HR/Manager/Employee)
+- Secure login
+- Password reset flow
+- Audit log for critical events:
+  - employee profile changes,
+  - leave approvals/rejections,
+  - document upload/delete.
+
+## 4) Out of Scope (Post-MVP)
+
+- Full payroll calculation engine
+- Multi-country compliance packs
+- Performance reviews/OKRs
+- Recruitment/ATS workflow
+- Advanced analytics and BI dashboards
+- Mobile native app
+
+## 5) MVP Success Criteria
+
+The MVP is successful when:
+- HR can onboard and manage all employees digitally.
+- Employees can submit leave requests and receive decisions through the system.
+- Managers can process team leave and view attendance.
+- Sensitive files are stored with role-restricted access.
+- The system logs critical actions for accountability.
+
+## 6) Suggested Timeline (High-level)
+
+- **Week 1–2:** Authentication + RBAC + employee records base
+- **Week 3–4:** Leave management workflow + balances
+- **Week 5:** Attendance module (manual check-in/out + summaries)
+- **Week 6:** Documents + audit logs + hardening + UAT
+
+## 7) What to Do With This Document (Action Plan)
+
+Use this MVP definition as a **decision baseline** and execute these tasks in order.
+
+### 7.1 Align stakeholders (Day 1)
+- Share this document with one HR lead, one manager, and one technical owner.
+- Collect decisions only on:
+  - leave types,
+  - mandatory employee fields,
+  - approval hierarchy,
+  - compliance constraints.
+- Timebox to a single 60-minute review; avoid adding new features.
+
+### 7.2 Freeze scope (Day 1)
+- Move every non-MVP request to a `Post-MVP backlog` list.
+- Mark this document version as `v1.0 (scope-frozen)`.
+- Require explicit approval before changing Section 3.
+
+### 7.3 Convert to build tickets (Day 2)
+Create implementation tickets grouped by module:
+- Auth + RBAC
+- Employee records
+- Leave workflow
+- Attendance
+- Documents
+- Audit logging
+
+Each ticket should include:
+- user story,
+- acceptance criteria,
+- API/data impact,
+- and test cases.
+
+### 7.4 Define Step 2 outputs (Day 2–3)
+Produce three concrete artifacts:
+1. Data model (ERD + table schema draft)
+2. API contract (REST endpoints for each module)
+3. System architecture diagram (frontend/backend/db/storage/auth)
+
+### 7.5 Start implementation only after sign-off (Day 3)
+The team can start coding when:
+- scope is frozen,
+- Step 2 artifacts are reviewed,
+- and the first sprint backlog is approved.
+
+## 8) Step 2 Kickoff Checklist
+
+Use this checklist immediately:
+- [ ] Confirm target company size and region(s)
+- [ ] Select tech stack (frontend, backend, database)
+- [ ] Draft ERD for employee/leave/attendance/documents
+- [ ] Define role-permission matrix
+- [ ] Write endpoint list and request/response shapes
+- [ ] Define audit log event schema
+- [ ] Break work into Sprint 1 tickets
+
+## 9) Immediate Next Step (Step 2 Input)
+
+Proceed to **system design and data model**:
+- define entities and relationships,
+- draft API endpoints,
+- choose implementation stack,
+- and create a role-permission matrix.
